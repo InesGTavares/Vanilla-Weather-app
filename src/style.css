@@ -4,39 +4,76 @@
 }
 
 #form-section {
-  color: whitesmoke;
   background-color: #026294;
-  padding: 20px;
   border-radius: 20px 20px 0px 0px;
+  color: whitesmoke;
+  padding: 20px;
 }
 
 .inputBox {
-  width: 35%;
-  padding: 6px 3px;
   border: 2px solid #026294;
   border-radius: 20px;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
+  padding: 6px 3px;
+  width: 35%;
 }
 
 #enter-button {
-  width: 10%;
-  padding: 6px 3px;
+  background-color: #95b4db;
   border: 2px solid #026294;
   border-radius: 20px;
   border-bottom-left-radius: 0;
   border-top-left-radius: 0;
-  background-color: #95b4db;
+  padding: 6px 3px;
+  width: 10%;
 }
 
 #current-location {
   background-color: #95b4db;
-  padding: 6px 3px;
   border: 2px solid #026294;
   border-radius: 20px;
+  padding: 6px 3px;
   width: 20%;
+}
+
+.col-2 {
+  background-color: #026294;
+  font-size: 100px;
+  vertical-align: middle;
+  text-align: center;
+  line-height: 300px;
+}
+
+.col-10 {
+  background-color: #026294;
+  color: whitesmoke;
+  padding: 27px 0px 20px 0px;
+  text-align: left;
+}
+
+.location {
+  font-size: 55px;
+}
+
+#current-temp {
+  font-size: 55px;
+}
+
+.units {
+  font-size: 40px;
+  text-decoration: none;
+  color: whitesmoke;
 }
 
 ul {
   list-style: none;
+}
+
+#info {
+  background-color: #95b4db;
+  font-size: 30px;
+  vertical-align: middle;
+  text-align: center;
+  line-height: 80px;
 }
