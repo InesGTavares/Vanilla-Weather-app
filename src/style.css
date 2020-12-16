@@ -1,3 +1,42 @@
-h1 {
-  color: blue;
+.mainSection {
+  padding: 60px;
+  margin: 100px;
+}
+
+#form-section {
+  color: whitesmoke;
+  background-color: #026294;
+  padding: 20px;
+  border-radius: 20px 20px 0px 0px;
+}
+
+.inputBox {
+  width: 35%;
+  padding: 6px 3px;
+  border: 2px solid #026294;
+  border-radius: 20px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+#enter-button {
+  width: 10%;
+  padding: 6px 3px;
+  border: 2px solid #026294;
+  border-radius: 20px;
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+  background-color: #95b4db;
+}
+
+#current-location {
+  background-color: #95b4db;
+  padding: 6px 3px;
+  border: 2px solid #026294;
+  border-radius: 20px;
+  width: 20%;
+}
+
+ul {
+  list-style: none;
 }
