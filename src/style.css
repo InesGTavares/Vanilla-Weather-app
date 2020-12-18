@@ -1,6 +1,9 @@
+body {
+  background-image: linear-gradient(to bottom right, #026294, whitesmoke);
+}
 .mainSection {
   padding: 60px;
-  margin: 100px;
+  margin: 30px 100px 10px 100px;
 }
 
 #form-section {
@@ -20,7 +23,7 @@
 }
 
 #enter-button {
-  background-color: #95b4db;
+  background-color: #b3e3f2;
   border: 2px solid #026294;
   border-radius: 20px;
   border-bottom-left-radius: 0;
@@ -30,7 +33,7 @@
 }
 
 #current-location {
-  background-color: #95b4db;
+  background-color: #b3e3f2;
   border: 2px solid #026294;
   border-radius: 20px;
   padding: 6px 3px;
@@ -39,16 +42,13 @@
 
 .col-2 {
   background-color: #026294;
-  font-size: 100px;
-  vertical-align: middle;
-  text-align: center;
   line-height: 300px;
 }
 
 .col-10 {
   background-color: #026294;
   color: whitesmoke;
-  padding: 27px 0px 20px 0px;
+  padding: 20px 0px 20px 0px;
   text-align: left;
 }
 
@@ -61,19 +61,43 @@
 }
 
 .units {
-  font-size: 40px;
-  text-decoration: none;
   color: whitesmoke;
+  font-size: 30px;
+  text-decoration: none;
 }
 
 ul {
   list-style: none;
 }
 
+.updated {
+  position: absolute;
+  right: 250px;
+}
+
 #info {
-  background-color: #95b4db;
   font-size: 30px;
   vertical-align: middle;
   text-align: center;
   line-height: 80px;
+  border: 5px solid #026294;
+  border-radius: 0px 0px 20px 20px;
+  color: #026294;
+}
+
+.col-3 p {
+  font-size: 25px;
+  margin: 0;
+}
+
+.col-3 h3 {
+  padding-top: 20px;
+}
+
+col-3 img {
+  margin-right: 10px;
+}
+
+.gitHub {
+  text-align: center;
 }
