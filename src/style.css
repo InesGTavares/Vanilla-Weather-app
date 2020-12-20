@@ -13,7 +13,7 @@ body {
   padding: 20px;
 }
 
-.inputBox {
+#inputBox {
   border: 2px solid #026294;
   border-radius: 20px;
   border-top-right-radius: 0;
