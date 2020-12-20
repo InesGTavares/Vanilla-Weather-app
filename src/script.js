@@ -23,8 +23,9 @@ let windElement = document.querySelector("#wind");
 let dateElement = document.querySelector("#date");
 let iconElement = document.querySelector("#icon");
 
+celsiusTemp = Math.round(response.data.main.temp);
 
-currentTemperature.innerHTML = Math.round(response.data.main.temp);
+currentTemperature.innerHTML = Math.round(celsiusTemp);
 cityElement.innerHTML = response.data.name;
 weatherDescription.innerHTML = response.data.weather[0].description;
 humidityElement.innerHTML = response.data.main.humidity;
@@ -46,5 +47,28 @@ let inputBox = document.querySelector("#inputBox");
 search(inputBox.value);
 }
 
+function displayFahrenheitTemperature (event) {
+    event.preventDefault(); 
+    celsius.classList.remove("active");
+    fahrenheit.classList.add("active");
+    let fahrenheitTemperature = (celsiusTemp * 9) / 5 + 32;
+    let currentTemperature = document.querySelector("#current-temp");
+    currentTemperature.innerHTML = Math.round(fahrenheitTemperature);
+}
+
+function displayCelsiusTemperature (event) {
+    event.preventDefault();
+    fahrenheit.classList.remove("active");
+    celsius.classList.add("active");
+    let currentTemperature = document.querySelector("#current-temp");
+    currentTemperature.innerHTML = Math.round(celsiusTemp);
+}
+
 let form = document.querySelector ("form"); 
 form.addEventListener("submit", handleSubmit);
+
+let fahrenheit = document.querySelector("#fahrenheit");
+fahrenheit.addEventListener("click", displayFahrenheitTemperature);
+
+let celsius = document.querySelector("#celsius");
+celsius.addEventListener("click", displayCelsiusTemperature);
