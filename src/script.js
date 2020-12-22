@@ -13,6 +13,19 @@ function formatDate () {
     return `${day} ${hours}:${minutes}`
 }
 
+function formatHours (timestamp) {
+    let date = new Date(timestamp);
+    let hours = date.getHours();
+    if (hours < 10) {
+        hours = `0${hours}`;
+    }
+    let minutes = date.getMinutes();
+    if (minutes < 10) {
+        minutes = `0${minutes}`;
+    }
+
+    return `${hours}:${minutes}`
+}
 
 function displayTemperature (response) {
 let currentTemperature =document.querySelector ("#current-temp");
@@ -35,11 +48,33 @@ iconElement.setAttribute ("src", `http://openweathermap.org/img/wn/${response.da
 iconElement.setAttribute ("alt", response.data.weather[0].description)
 }
 
+function displayForecast (response) {
+    let forecastElement = document.querySelector("#info"); 
+    forecastElement.innerHTML = null; 
+    let forecast = null;
+    
+for (let index = 0; index < 5; index++) {
+    forecast = response.data.list[index];
+    forecastElement.innerHTML += `<div class="col">
+    <h3><strong>${formatHours(forecast.dt * 1000)}</strong></h3>
+    <img src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png">
+    <p><strong>
+    ${Math.round(forecast.main.temp_max)}º | ${Math.round(forecast.main.temp_min)}º
+    </strong>C</p>
+    </div>`; 
+}
+}
+
 function search (city) {
 let apiKey = "4d96685ad0055b470dd85d4445d4e3c9";
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 axios.get(apiUrl).then(displayTemperature);
+
+apiUrl=`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
+axios.get(apiUrl).then(displayForecast);
 }
+
+
 
 function handleSubmit(event) {
 event.preventDefault(); 
@@ -64,8 +99,24 @@ function displayCelsiusTemperature (event) {
     currentTemperature.innerHTML = Math.round(celsiusTemp);
 }
 
+function searchLocation(position) {
+  let latitude = position.coords.latitude;
+  let longitude = position.coords.longitude;
+  let apiKey = "4d96685ad0055b470dd85d4445d4e3c9";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayTemperature);
+}
+
+function getCurrentLocation(event) {
+  event.preventDefault();
+  navigator.geolocation.getCurrentPosition(searchLocation);
+}
+
 let form = document.querySelector ("form"); 
 form.addEventListener("submit", handleSubmit);
+
+let currentLocationButton = document.querySelector("#current-location");
+currentLocationButton.addEventListener("click", getCurrentLocation);
 
 let fahrenheit = document.querySelector("#fahrenheit");
 fahrenheit.addEventListener("click", displayFahrenheitTemperature);
